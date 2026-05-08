@@ -1,0 +1,121 @@
+/* קונטיינר הסקשן הראשי עם שם ייחודי */
+.scrolling-section-container {
+  position: relative;
+  width: 100%;
+  min-height: 120vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 100px 0;
+  background-color: transparent; /* נותן לרקע של הדף להשתקף */
+}
+
+/* תוכן מרכזי קבוע */
+.scrolling-section-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 10;
+  text-align: center;
+}
+
+.scrolling-section-logo {
+  width: 150px;
+  height: 150px;
+  margin-bottom: 20px;
+}
+
+.scrolling-section-copy {
+  margin: 1.5rem 0 3rem 0;
+  width: 30%;
+  padding: 1.5rem;
+}
+
+/* שורות הכרטיסים */
+.scrolling-section-row {
+  position: relative;
+  width: 100%;
+  max-width: 2000px;
+  margin: 0.75rem 0;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 0 1.5rem;
+  pointer-events: none;
+}
+
+/* כרטיס בודד */
+.scrolling-section-card {
+  position: relative;
+  flex: 1;
+  height: 360px;
+  border-radius: 0.75em;
+  will-change: transform;
+  overflow: hidden;
+}
+
+.scrolling-section-card-frame {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: #262626; /* var(--base-300) */
+  clip-path: polygon(
+    2rem 0px,
+    calc(100% - 2rem) 0px,
+    100% 2rem,
+    100% calc(100% - 2rem),
+    calc(100% - 2rem) 100%,
+    2rem 100%,
+    0px calc(100% - 2rem),
+    0px 2rem
+  );
+}
+
+.scrolling-section-card-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.scrolling-section-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.scrolling-section-card-gradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.65) 0%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  z-index: 1;
+}
+
+/* התאמה למובייל */
+@media (max-width: 1000px) {
+  .scrolling-section-card {
+    height: 180px;
+    flex: 0 0 45%;
+  }
+  .scrolling-section-row {
+    gap: 0.5rem;
+  }
+  .scrolling-section-copy {
+    width: 90%;
+  }
+}
